@@ -1,0 +1,7 @@
+content     vk.filter    chrome/content/
+content     vk.filter    chrome/content/ contentaccessible=yes
+overlay chrome://browser/content/browser.xul chrome://vk.filter/content/browser.xul
+
+locale	vk.filter	en-US	locale/en-US/
+
+skin	vk.filter	classic/1.0	skin/

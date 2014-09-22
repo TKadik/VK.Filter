@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE vk.filter SYSTEM "chrome://vk.filter/locale/translations.dtd">
+<overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script src="jquery-1.11.1.js" />
+    <script src="vk.filter.js" />
+
+		<keyset>
+			<key id="vk-feed-filter-run-key" modifiers="accel alt shift" key="L" oncommand="vkFeedFilter.run()"/>
+		</keyset>
+
+		<toolbarpalette id="BrowserToolbarPalette">
+			<toolbarbutton id="vk-feed-filter-toolbar-button"
+                           label="VK Feed Filter" tooltiptext="&runVkFilter;"
+                           oncommand="vkFeedFilter.run()"
+                    type="checkbox" validate="always"
+                    image="chrome://vk.filter/skin/ВК - small.jpg"/>
+		</toolbarpalette>
+</overlay>
