@@ -5,7 +5,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>vkfilter@tkadik.com</em:id>
         <em:name>VK Filter</em:name>
-        <em:version>1.0</em:version>
+        <em:version>1.1</em:version>
         <em:type>2</em:type>
         <em:creator>Taras Kadykalo</em:creator>
         <em:description>Removes feeds which were seen previously</em:description>

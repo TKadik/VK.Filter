@@ -2,7 +2,10 @@ Components.utils.import("resource://gre/modules/FileUtils.jsm");
 Components.utils.import("resource://gre/modules/NetUtil.jsm");
 
 var vkFeedFilter = function () {
-    var readFeeds = [];
+    var readFeeds = [],
+        takeCount = 10,
+        skipCount = 100,
+        takeIndex, skipIndex;
 
     function getReadFeedsFile() {
         return FileUtils.getFile("Home", ["vkReadFeeds.json"]);
@@ -27,7 +30,15 @@ var vkFeedFilter = function () {
 
         if(feedHash) {
             if (readFeeds.indexOf(feedHash) > -1) {
-                $feed.hide();
+                if(takeIndex === 0){
+                    $feed.hide();
+                    skipIndex++;
+                    if(skipIndex % skipCount === 0){
+                        takeIndex = takeCount;
+                    }
+                }else{
+                    takeIndex--;
+                }
             } else {
                 readFeeds.push(feedHash);
             }
@@ -113,6 +124,8 @@ var vkFeedFilter = function () {
         run: function () {
             try {
                 if (isChecking()) {
+                    takeIndex = takeCount;
+                    skipCount = 0;
                     readData(checkForChanges);
                 } else {
                     saveData();
